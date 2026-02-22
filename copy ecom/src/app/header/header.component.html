@@ -1,0 +1,21 @@
+<header class="topbar">
+  <a class="brand" routerLink="/home">NovaCart</a>
+
+  <form class="search" (ngSubmit)="onSearch()">
+    <input
+      type="text"
+      name="search"
+      [(ngModel)]="searchTerm"
+      placeholder="Search mobiles, watches, tablets..."
+    />
+    <button type="submit">Search</button>
+  </form>
+
+  <nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/wishlist" routerLinkActive="active">Wishlist ({{ storeService.wishlistCount }})</a>
+    <a routerLink="/orders" routerLinkActive="active">Orders</a>
+    <a routerLink="/cart" routerLinkActive="active">Cart ({{ storeService.cartCount }})</a>
+    <button type="button" (click)="onLogout()">Logout</button>
+  </nav>
+</header>

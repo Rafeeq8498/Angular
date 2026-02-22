@@ -1,0 +1,45 @@
+<section class="login-page">
+  <div class="login-panel intro">
+    <p class="kicker">Next-gen shopping</p>
+    <h1>Welcome to NovaCart</h1>
+    <p>
+      Discover premium gadgets, fashion, and lifestyle picks with smooth checkout and curated deals.
+    </p>
+    <ul>
+      <li>Same-day dispatch on top products</li>
+      <li>Live deals and exclusive launches</li>
+      <li>Secure shopping experience</li>
+    </ul>
+  </div>
+
+  <div class="login-panel form-card">
+    <h2>Sign in to continue</h2>
+    <p class="subtitle">Use any email and a 4+ character password</p>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="you@example.com"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Minimum 4 characters"
+        required
+      />
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="page container-x">
+  <h1>Cart</h1>
+  <p class="sub">Review items before checkout</p>
+
+  <p class="empty" *ngIf="!storeService.cartProducts.length">Your cart is empty.</p>
+
+  <article class="row" *ngFor="let item of storeService.cartProducts">
+    <img [src]="item.product.image" [alt]="item.product.name" />
+    <div>
+      <h3>{{ item.product.name }}</h3>
+      <p>{{ item.product.category }}</p>
+      <p class="price">{{ item.subtotal | currency : 'INR' : 'symbol' : '1.0-0' : 'en-IN' }}</p>
+    </div>
+    <div class="qty">
+      <button (click)="decrease(item.product.id)">-</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increase(item.product.id)">+</button>
+      <button class="ghost" (click)="remove(item.product.id)">Remove</button>
+    </div>
+  </article>
+
+  <section class="summary" *ngIf="storeService.cartProducts.length">
+    <p>Total: <strong>{{ storeService.cartTotal | currency : 'INR' : 'symbol' : '1.0-0' : 'en-IN' }}</strong></p>
+    <button (click)="checkout()">Place order</button>
+  </section>
+</section>

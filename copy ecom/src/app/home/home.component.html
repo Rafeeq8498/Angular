@@ -1,0 +1,70 @@
+<section class="home-page container-x">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">India tech festival</p>
+      <h1>Top mobiles, watches and tablets in one place</h1>
+      <p>
+        Shop latest devices with secure checkout, quick dispatch and trusted warranty support.
+      </p>
+      <div class="hero-actions">
+        <a href="#products">Explore products</a>
+        <span>Free shipping above Rs. 999</span>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1200&q=80"
+      alt="Modern devices on table"
+    />
+  </section>
+
+  <section class="chips">
+    <p>Popular categories:</p>
+    <button
+      type="button"
+      [class.active]="isCategoryActive('All')"
+      (click)="onSelectCategory('All')"
+    >
+      All
+    </button>
+    <button
+      type="button"
+      *ngFor="let category of storeService.categories"
+      [class.active]="isCategoryActive(category)"
+      (click)="onSelectCategory(category)"
+    >
+      {{ category }}
+    </button>
+  </section>
+
+  <section class="products" id="products">
+    <div class="section-head">
+      <h2>Featured products</h2>
+      <p>{{ storeService.filteredProducts.length }} products available</p>
+    </div>
+
+    <div class="product-grid">
+      <app-product-card
+        *ngFor="let product of storeService.filteredProducts; trackBy: trackByProductId"
+        [product]="product"
+        [inWishlist]="storeService.isInWishlist(product.id)"
+        (add)="onAddToCart($event)"
+        (wishlist)="onToggleWishlist($event)"
+      ></app-product-card>
+    </div>
+  </section>
+
+  <section class="promo-strip">
+    <article>
+      <h3>Express Delivery</h3>
+      <p>Fast delivery across major cities with live order tracking.</p>
+    </article>
+    <article>
+      <h3>Brand Warranty</h3>
+      <p>Genuine products with official India warranty coverage.</p>
+    </article>
+    <article>
+      <h3>Secure Payment</h3>
+      <p>UPI, cards and netbanking with advanced fraud protection.</p>
+    </article>
+  </section>
+</section>

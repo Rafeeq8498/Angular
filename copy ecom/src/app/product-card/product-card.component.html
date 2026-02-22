@@ -1,0 +1,22 @@
+<article class="product-card">
+  <div class="product-image-wrap">
+    <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+    <img [src]="product.image" [alt]="product.name" loading="lazy" />
+  </div>
+  <div class="product-content">
+    <p class="product-category">{{ product.category }}</p>
+    <h3>{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    <div class="product-meta">
+      <p class="product-price">{{ product.price | currency : 'INR' : 'symbol' : '1.0-0' : 'en-IN' }}</p>
+      <p class="product-rating">{{ product.rating }} <span>star</span></p>
+    </div>
+
+    <div class="product-actions">
+      <button type="button" (click)="onAddToCart()">Add to cart</button>
+      <button type="button" class="wish" (click)="onToggleWishlist()">
+        {{ inWishlist ? 'Wishlisted' : 'Wishlist' }}
+      </button>
+    </div>
+  </div>
+</article>

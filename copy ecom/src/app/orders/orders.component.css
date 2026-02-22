@@ -1,0 +1,50 @@
+.page {
+  padding: 24px 18px 40px;
+}
+
+h1 {
+  margin-bottom: 2px;
+}
+
+.sub {
+  margin: 0 0 16px;
+  color: #6a7480;
+}
+
+.empty {
+  background: #fff;
+  border: 1px solid #e7e1d8;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.order {
+  background: #fff;
+  border: 1px solid #e7e1d8;
+  border-radius: 14px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.label {
+  margin: 0;
+  color: #6a7480;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+h3 {
+  margin: 6px 0 0;
+  color: #173f5f;
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .order {
+    grid-template-columns: 1fr;
+  }
+}

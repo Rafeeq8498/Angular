@@ -1,0 +1,25 @@
+<section class="page container-x">
+  <h1>Orders</h1>
+  <p class="sub">Track your placed orders</p>
+
+  <p class="empty" *ngIf="!storeService.orders.length">No orders yet. Add products to cart and place an order.</p>
+
+  <article class="order" *ngFor="let order of storeService.orders">
+    <div>
+      <p class="label">Order ID</p>
+      <h3>{{ order.orderId }}</h3>
+    </div>
+    <div>
+      <p class="label">Placed on</p>
+      <h3>{{ order.placedAt | date : 'medium' }}</h3>
+    </div>
+    <div>
+      <p class="label">Items</p>
+      <h3>{{ order.itemCount }}</h3>
+    </div>
+    <div>
+      <p class="label">Total</p>
+      <h3>{{ order.total | currency : 'INR' : 'symbol' : '1.0-0' : 'en-IN' }}</h3>
+    </div>
+  </article>
+</section>
